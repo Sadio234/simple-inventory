@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title class="titre">Accueil</title>
+{% endblock %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% block content %}
+<div id="content">
+<button id="print"><i class="fa fa-print"></i></button>
+<h1 id="h1-top">DIRECTION DES SYSTEMES INFORMATIQUES (DSI) </h1>
+<h2 id="h2-top">DECHARGE D'ENTREES DES MATERIELS</h2>
+<article class="ticle">
+    <br>
+    <div class="up">
+        <h5 class=""><span id="caisse2">Caisse:</span> {{asp.caisse}}</td></h5>
+        <h5 class=""><span id="date2">Date:</span> {{asp.date|date:'j F Y'}}</h5>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="middle">
+        <div>
+        <h5 class="h5"><p class="under">Description des pannes:</p> <br> <br> {{asp.description_pannes|safe|truncatewords:50 }}</h5>
+            <h5 class="h4"><p class="under1">Interventions:</p><br> <br> {{asp.intervention|safe|truncatewords:50}}</h5>
+        </div>
+        <hr>
+    <h5 class="h51"><p class="h51"><p class="underl">Designations et References:</p> <br> <br> {{asp.design_refer|safe|truncatewords:50 }}</h5>
+        <hr>
+    <h5 class="h52"><p class="und">Quantite:</p> <br> <br>{{asp.quantity}}</h5>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="bottom">
+    <div class="down">
+        <h5 class="agent"><span id="agen">Agent</span></h5>
+        <h5 class="nom"><span id="nom-prenom">Nom & Prenom:</span> {{asp.agent}}</h5>
+        <h5 class=""><span id="fonc">Fonction:</span> {{asp.Fonct}}</h5>
+    </div>
+    <div class="deep-down">
+        <h5 class="agent-dsi"><span id="agen-dsi">Agent DSI</span> </h5>
+        <h5 class="prenom"><span id="pren">Nom & Prenom:</span> {{asp.agent_dsi.username }}</h5>
+        <h5 class=""><span id="fon">Fonction:</span> {{asp.fonction}}</h5>
+    </div>
+    </div>
+</article>
+    </div>
+<script>
+    const printBtn = document.getElementById('print');
+    printBtn.addEventListener('click', function() {
+    print();
+    })
+</script>
+
+{% endblock %}

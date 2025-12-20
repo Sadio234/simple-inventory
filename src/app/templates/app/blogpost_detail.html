@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Accueil</title>
+{% endblock %}
+
+{% block content %}
+<button id="print"><i class="fa fa-print"></i></button>
+<h1 id="topper">DIRECTION DES SYSTEMES INFORMATIQUES (DSI)</h1>
+<h2 id="topper-h1">DECHARGE DE SORTIES DES MATERIELS</h2>
+<article id="ticle">
+    <br>
+    <div class="up">
+        <h5 class=""><span class="caisse">Caisse</span>: {{asps.caisse}}</h5>
+        <h5 class=""><span class="date">Date</span>: {{asps.date|date:'j F Y'}}</h5>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="middle">
+    <div>
+    <h5 class="h5"><p class="under">Description des pannes:</p> <br> <br> {{asps.description_pannes|safe|truncatewords:50 }}</h5>
+    <h5 class="h4"><p class="under1">Interventions:</p><br> <br> {{asps.intervention|safe|truncatewords:50}}</h5>
+     </div>
+        <hr>
+    <h5 class="h51"><p class="h51"><p class="underl">Designations et References:</p> <br> <br> {{asps.design_refer|safe|truncatewords:50 }}</h5>
+        <hr>
+    <h5 class="h52"><p class="und">Quantite:</p> <br> <br>{{asps.quantity}}</h5>
+    </div>
+    <br>
+    <hr>
+    <br>
+        <div class="bottom">
+    <div class="down">
+    <h5 class="down-h"><span id="agent">Agent</span></h5>
+       <h5 class="h-down"><span id="nom">Nom & Prenom</span>: {{asps.agent}}</h5>
+    <h5 class=""><span id="fonction">Fonction</span>: {{asps.Fonct}}</h5>
+    </div>
+    <div class="deep-down">
+        <h5 class="deep-h"><span id="dsi">Agent DSI</span></h5>
+    <h5 class="h-deep"><span id="prenom">Nom & Prenom:</span>{{asps.agent_dsi.username }}</h5>
+    <h5 class=""><span id="fonct">Fonction:</span> {{asps.fonction}}</h5>
+    </div>
+    </div>
+</article>
+
+<script>
+    const printBtn = document.getElementById('print');
+    printBtn.addEventListener('click', function() {
+    print();
+    })
+</script>
+
+{% endblock %}

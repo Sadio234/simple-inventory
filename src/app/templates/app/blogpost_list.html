@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Accueil</title>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="top">LES DECHARGES DES ENTREES ET DES SORTIES</h1>
+<article class="art">
+    <div  class="app-title">
+        <a class="a-bord" href="{% url 'app:det' %}">DECHARGES DES ENTREES DES MATERIELS</a>
+        <a href="{% url 'app:update' %}">DECHARGES DES SORTIES DES MATERIELS</a>
+    </div>
+</article>
+{% endblock %}
+
