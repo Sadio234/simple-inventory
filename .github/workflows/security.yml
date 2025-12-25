@@ -16,9 +16,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install project
         run: |
-          pip install -r requirements.txt
+          pip install .
           pip install pip-audit
 
       - name: Run security audit
